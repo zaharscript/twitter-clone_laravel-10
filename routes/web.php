@@ -20,4 +20,8 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/index', [DashboardController::class, 'index'])->name('twitter.index');
 
+Route::get('/term', function () {
+    return view('twitter.term');
+});
+
 require __DIR__ . '/auth.php';
