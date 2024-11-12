@@ -1,4 +1,6 @@
-<div>
+@extends('layouts.layouts')
+
+@section('content')
     <h1>Term</h1>
     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam assumenda minus temporibus magnam dignissimos
         esse ipsa quisquam impedit velit earum. Perspiciatis et harum eaque debitis rerum quidem sit modi assumenda
@@ -8,4 +10,4 @@
         nesciunt! Quidem quas minus quis nostrum, modi magnam id quod. Quia sequi, explicabo dolor tempore nam
         voluptatum similique ratione rerum pariatur eligendi facilis quisquam aperiam praesentium? Ducimus, dolorum.
         Obcaecati!</p>
-</div>
+@endsection
