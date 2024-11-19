@@ -24,4 +24,8 @@ Route::get('/term', function () {
     return view('twitter.term');
 });
 
+Route::get('/support', function () {
+    return view('twitter.support');
+});
+
 require __DIR__ . '/auth.php';

@@ -16,6 +16,7 @@
                     </div>
                 </div>
             </div>
+            @include('layouts.nav')
             <div class="card-body">
                 <p class="fs-6 fw-light text-muted">
                     comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes
