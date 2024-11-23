@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('thoughts', function (Blueprint $table) {
+            $table->id();
+            $table->string('content');
+            $table->unsignedInteger('likes')->default(0);
             $table->unsignedInteger('dislikes')->default(0)->after('likes');
+            $table->timestamps();
         });
     }
 
