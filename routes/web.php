@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ThoughtController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -19,6 +20,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/index', [DashboardController::class, 'index'])->name('twitter.index');
+Route::post('/thought', [ThoughtController::class, 'store'])->name('thought.create');
+
 
 Route::get('/term', function () {
     return view('twitter.term');

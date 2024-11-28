@@ -2,15 +2,10 @@
 
 @section('content')
     {{-- content --}}
-    <h4> Express your thoughts 🤔</h4>
-    <div class="row">
-        <div class="mb-3">
-            <textarea class="form-control" id="idea" rows="3"></textarea>
-        </div>
-        <div class="">
-            <button class="btn btn-dark"> Share </button>
-        </div>
-    </div>
+    @include('twitter.success-message')
+    {{-- submission form --}}
+    @include('twitter.submit-thought')
+
     <hr>
     @foreach ($thoughts as $thought)
         <div class="mt-3">
