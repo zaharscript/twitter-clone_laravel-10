@@ -10,14 +10,19 @@ class ThoughtController extends Controller
 {
     public function store(Request $request)
     {
-        $request->validate([
-            'thought' => 'required|string|max:255',
+        $thought = Thought::create([
+            'content' => request()->get('think', ' '),
         ]);
+        // $thought->save();
 
-        Thought::create([
-            'content' => $request->input('thought'),
-        ]);
+        // $request->validate([
+        //     'thought' => 'required|string|max:255',
+        // ]);
 
-        return redirect()->route('twitter.index');
+        // Thought::create([
+        //     'content' => $request->input('thought'),
+        // ]);
+
+        return redirect()->route('dashboard');
     }
 }

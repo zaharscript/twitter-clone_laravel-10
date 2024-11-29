@@ -1,14 +1,14 @@
 <h4> Express your thoughts 🤔</h4>
 <div class="row">
 
-    <form action= "{{ route('thought.create') }}" name="fikir" method="post">
-        @csrf
-        <div class="mb-3">
+    <form action= "{{ route('thought.create') }}" method="post">
 
-            <textarea class="form-control" id="idea" rows="3"></textarea>
+        <div class="mb-3">
+            @csrf
+            <textarea class="form-control" name="think" id="idea" rows="3"></textarea>
         </div>
         <div class="">
-            <button class="btn btn-dark"> Share </button>
+            <button type="submit" class="btn btn-dark"> Share </button>
         </div>
     </form>
 

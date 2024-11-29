@@ -3,7 +3,9 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ThoughtController;
+use App\Models\Thought;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,7 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/index', [DashboardController::class, 'index'])->name('twitter.index');
+Route::get('/index', [DashboardController::class, 'index'])->name('dashboard');
 Route::post('/thought', [ThoughtController::class, 'store'])->name('thought.create');
 
 
