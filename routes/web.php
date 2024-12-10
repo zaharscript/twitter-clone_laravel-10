@@ -21,8 +21,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
 Route::get('/index', [DashboardController::class, 'index'])->name('dashboard');
 Route::post('/thought', [ThoughtController::class, 'store'])->name('thought.create');
+
+
 
 
 Route::get('/term', function () {
