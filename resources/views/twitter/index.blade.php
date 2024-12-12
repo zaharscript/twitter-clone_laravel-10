@@ -13,5 +13,10 @@
         </div>
     @endforeach
 
+    {{-- pagination link --}}
+    {{-- <div class="d-flex justify-content-center">
+        {{ $thoughts->links() }}
+    </div> --}}
+
     {{-- content end --}}
 @endsection

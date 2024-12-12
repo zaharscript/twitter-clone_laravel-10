@@ -18,7 +18,7 @@ class ThoughtController extends Controller
         // input validation
         $request->validate(
             [
-                'idea' => 'required|string|min:4|max|255' //validation rules
+                'idea' => 'required|string|min:4|max:255' //validation rules
             ],
             [
                 //custom error message

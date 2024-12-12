@@ -28,6 +28,7 @@ Route::post('/thought', [ThoughtController::class, 'store'])->name('thought.crea
 
 
 
+
 Route::get('/term', function () {
     return view('twitter.term');
 });
