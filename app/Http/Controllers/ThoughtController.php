@@ -7,11 +7,7 @@ use Illuminate\Http\Request;
 
 class ThoughtController extends Controller
 {
-    public function index()
-    {
-        $thoughts = Thought::orderBy('created_at', 'desc')->get();
-        return view('dashboard.index', compact('thoughts'));
-    }
+
 
     public function store(Request $request)
     {
@@ -34,6 +30,6 @@ class ThoughtController extends Controller
         ]);
 
 
-        return redirect()->route('dashboard.index')->with('success', 'Another idea added to the vault!');
+        return redirect()->route('twitter.index')->with('success', 'Another idea added to the vault!');
     }
 }

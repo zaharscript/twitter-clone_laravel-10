@@ -22,7 +22,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('/index', [DashboardController::class, 'index'])->name('dashboard.index');
+Route::get('/index', [DashboardController::class, 'index'])->name('twitter.index');
 Route::post('/thought', [ThoughtController::class, 'store'])->name('thought.create');
 
 
