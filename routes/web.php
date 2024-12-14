@@ -21,9 +21,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
+// twitter-clone route
 Route::get('/index', [DashboardController::class, 'index'])->name('twitter.index');
 Route::post('/thought', [ThoughtController::class, 'store'])->name('thought.create');
+Route::delete('/thoughts/{id}', [ThoughtController::class, 'destroy'])->name('thoughts.destroy');
 
 
 

@@ -11,9 +11,13 @@
                 </div>
 
             </div>
+            {{-- delete button --}}
             <div>
-                <form action="">
-                    <button class="btn btn-danger btn-sm">X</button>
+
+                <form method="POST" action="{{ route('thoughts.destroy', $thought->id) }}">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger btn-sm" onclick="return confirm('really?? 😲')">X</button>
                 </form>
 
             </div>
