@@ -33,10 +33,10 @@ class ThoughtController extends Controller
         return redirect()->route('twitter.index')->with('success', 'Another idea added to the vault!');
     }
 
-    public function destroy($id)
+    public function destroy(Thought $thought)
     {
         //find the thought bu ID
-        $thought = Thought::findOrFail($id);
+        // $thought = Thought::findOrFail($id);
 
         // delete the thought
         $thought->delete();
