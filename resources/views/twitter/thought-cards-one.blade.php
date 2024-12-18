@@ -13,20 +13,10 @@
             </div>
 
             <div style="display: flex; gap: 10px; align-items: center;">
-                {{-- view single thought button --}}
-                <form>
-                    @csrf
-                    <a href="{{ route('thoughts.show', $thought->id) }}"><img src="/image/read.png"
-                            style="width:20px;height:20px" alt="read thought"></a>
-                </form>
 
-                {{-- delete button --}}
-                <form method="POST" action="{{ route('thoughts.destroy', $thought->id) }}">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-danger btn-sm" onclick="return confirm('really?? 😲')">X</button>
+                <a href="{{ route('twitter.index') }}"><i class="fa-solid fa-square-caret-left fa-bounce fa-lg"
+                        style="color: #63E6BE;"></i></a>
 
-                </form>
             </div>
         </div>
     </div>
