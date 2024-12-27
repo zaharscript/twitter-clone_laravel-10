@@ -23,9 +23,17 @@ Route::middleware('auth')->group(function () {
 
 // twitter-clone route
 Route::get('/index', [DashboardController::class, 'index'])->name('twitter.index');
+
 Route::get('/thoughts/{thought}', [ThoughtController::class, 'show'])->name('thoughts.show');
+
 Route::post('/thoughts', [ThoughtController::class, 'store'])->name('thought.create');
+
+Route::get('/thoughts/{thought}/edit', [ThoughtController::class, 'edit'])->name('thoughts.edit');
+
+Route::put('/thoughts/{thought}', [ThoughtController::class, 'update'])->name('thoughts.update');
+
 Route::delete('/thoughts/{thought}', [ThoughtController::class, 'destroy'])->name('thoughts.destroy');
+
 
 
 

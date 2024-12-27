@@ -13,6 +13,11 @@
             </div>
 
             <div style="display: flex; gap: 10px; align-items: center;">
+                {{-- edit thought --}}
+
+                @csrf
+                <a href="{{ route('thoughts.edit', $thought->id) }}">edit</a>
+
                 {{-- view single thought button --}}
                 <form>
                     @csrf
@@ -32,9 +37,28 @@
     </div>
 
     <div class="card-body">
-        <p class="fs-6 fw-light text-muted">
-            {{ $thought->content }}
-        </p>
+        @if ($editing ?? false)
+            <form action= "{{ route('thoughts.update', ['thought' => $thought->id]) }}" method="post">
+                @csrf
+                @method('put')
+                <div class="mb-3">
+                    <textarea class="form-control @error('idea') is-invalid @enderror" name="content" id="content" rows="2">{{ $thought->content }}</textarea>
+                    @error('content')
+                        <span class="invalid-feedback">
+                            {{ $message }}
+                        </span>
+                    @enderror
+
+                </div>
+                <div class="">
+                    <button type="submit" class="btn btn-success"> Share </button>
+                </div>
+            </form>
+        @else
+            <p class="fs-6 fw-light text-muted">
+                {{ $thought->content }}
+            </p>
+        @endif
         <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex">
                 <div>

@@ -35,9 +35,12 @@ class ThoughtController extends Controller
 
     public function show(Thought $thought)
     {
-        return view('twitter.show', [
-            'thought' => $thought
-        ]);
+        // return view('twitter.show', [
+        //     'thought' => $thought
+        // ]);
+
+        // more simplified method 👇🏻
+        return view('twitter.show', compact('thought'));
     }
 
     public function destroy(Thought $thought)
@@ -46,5 +49,26 @@ class ThoughtController extends Controller
 
 
         return redirect()->back()->with('success', 'Thought deleted!');
+    }
+
+    public function edit(Thought $thought)
+    {
+        $editing = true;
+
+
+        return view('twitter.thought-cards', compact('thought', 'editing'));
+    }
+
+    public function update(Request $request, Thought $thought)
+    {
+        $request->validate([
+            'content' => 'required|string|min:4|max:255'
+        ]);
+
+        $thought->update([
+            'content' => $request->input('content')
+        ]);
+
+        return redirect()->route('twitter.index', $thought->id)->with('success', 'Thought updated successfully!');
     }
 }

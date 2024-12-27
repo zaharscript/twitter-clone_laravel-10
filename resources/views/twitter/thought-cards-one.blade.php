@@ -13,7 +13,7 @@
             </div>
 
             <div style="display: flex; gap: 10px; align-items: center;">
-
+                <a href="{{ route('thoughts.edit', $thought->id) }}">edit</a>
                 <a href="{{ route('twitter.index') }}"><i class="fa-solid fa-square-caret-left fa-bounce fa-lg"
                         style="color: #63E6BE;"></i></a>
 
