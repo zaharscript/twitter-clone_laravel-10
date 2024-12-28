@@ -55,8 +55,7 @@ class ThoughtController extends Controller
     {
         $editing = true;
 
-
-        return view('twitter.thought-cards', compact('thought', 'editing'));
+        return view('twitter.show', compact('thought', 'editing'));
     }
 
     public function update(Request $request, Thought $thought)

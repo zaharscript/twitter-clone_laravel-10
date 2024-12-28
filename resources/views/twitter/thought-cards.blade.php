@@ -38,7 +38,7 @@
 
     <div class="card-body">
         @if ($editing ?? false)
-            <form action= "{{ route('thoughts.update', ['thought' => $thought->id]) }}" method="post">
+            <form action= "{{ route('thoughts.update', $thought->id) }}" method="post">
                 @csrf
                 @method('put')
                 <div class="mb-3">
@@ -51,7 +51,7 @@
 
                 </div>
                 <div class="">
-                    <button type="submit" class="btn btn-success"> Share </button>
+                    <button type="submit" class="btn btn-success"> Update </button>
                 </div>
             </form>
         @else
