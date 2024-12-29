@@ -40,7 +40,8 @@ class ThoughtController extends Controller
         // ]);
 
         // more simplified method 👇🏻
-        return view('twitter.show', compact('thought'));
+        $readOne = true;
+        return view('twitter.show', compact('thought', 'readOne'));
     }
 
     public function destroy(Thought $thought)
@@ -48,7 +49,7 @@ class ThoughtController extends Controller
         $thought->delete();
 
 
-        return redirect()->back()->with('success', 'Thought deleted!');
+        return redirect()->route('twitter.index')->with('success', 'Thought deleted!');
     }
 
     public function edit(Thought $thought)

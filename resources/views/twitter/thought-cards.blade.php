@@ -1,41 +1,71 @@
 <div class="card">
-    <div class="px-3 pt-4 pb-2">
-        <div class="d-flex align-items-center justify-content-between">
-            <div class="d-flex align-items-center">
 
-                <img style="width:50px" class="me-2 avatar-sm rounded-circle"
-                    src="https://api.dicebear.com/6.x/fun-emoji/svg?seed=Mario" alt="Mario Avatar">
-                <div>
-                    <h5 class="card-title mb-0"><a href="#"> Mario
-                        </a></h5>
+    @if ($editing ?? false)
+        <div class="px-3 pt-4 pb-2">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center">
+
+                    <img style="width:50px" class="me-2 avatar-sm rounded-circle"
+                        src="https://api.dicebear.com/6.x/fun-emoji/svg?seed=Mario" alt="Mario Avatar">
+                    <div>
+                        <h5 class="card-title mb-0"><a href="#"> Mario
+                            </a></h5>
+                    </div>
+
                 </div>
+                <div style="display: flex; gap: 10px; align-items: center;">
 
+                    <a href="{{ route('twitter.index') }}"><i class="fa-solid fa-square-caret-left fa-bounce fa-lg"
+                            style="color: #63E6BE;"></i></a>
+
+                </div>
             </div>
+        @else
+            <div class="px-3 pt-4 pb-2">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center">
 
-            <div style="display: flex; gap: 10px; align-items: center;">
-                {{-- edit thought --}}
+                        <img style="width:50px" class="me-2 avatar-sm rounded-circle"
+                            src="https://api.dicebear.com/6.x/fun-emoji/svg?seed=Mario" alt="Mario Avatar">
+                        <div>
+                            <h5 class="card-title mb-0"><a href="#"> Mario
+                                </a></h5>
+                        </div>
 
-                @csrf
-                <a href="{{ route('thoughts.edit', $thought->id) }}">edit</a>
+                    </div>
 
-                {{-- view single thought button --}}
-                <form>
-                    @csrf
-                    <a href="{{ route('thoughts.show', $thought->id) }}"><img src="/image/read.png"
-                            style="width:20px;height:20px" alt="read thought"></a>
-                </form>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        {{-- edit thought --}}
 
-                {{-- delete button --}}
-                <form method="POST" action="{{ route('thoughts.destroy', $thought->id) }}">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-danger btn-sm" onclick="return confirm('really?? 😲')">X</button>
+                        @csrf
+                        <a href="{{ route('thoughts.edit', $thought->id) }}">edit</a>
 
-                </form>
+
+                        @if ($readOne ?? false)
+                            {{-- back button --}}
+                            <a href="{{ route('twitter.index') }}"><i
+                                    class="fa-solid fa-square-caret-left fa-bounce fa-lg"
+                                    style="color: #63E6BE;"></i></a>
+                        @else
+                            {{-- view single thought button --}}
+                            <form>
+                                @csrf
+                                <a href="{{ route('thoughts.show', $thought->id) }}"><img src="/image/read.png"
+                                        style="width:20px;height:20px" alt="read thought"></a>
+                            </form>
+                        @endif
+
+                        {{-- delete button --}}
+                        <form method="POST" action="{{ route('thoughts.destroy', $thought->id) }}">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger btn-sm" onclick="return confirm('really?? 😲')">X</button>
+
+                        </form>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-
+    @endif
     <div class="card-body">
         @if ($editing ?? false)
             <form action= "{{ route('thoughts.update', $thought->id) }}" method="post">
