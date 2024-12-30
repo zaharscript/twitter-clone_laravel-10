@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Thought;
+use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -10,7 +11,14 @@ class DashboardController extends Controller
     public function index()
     {
 
-        $thoughts = Thought::latest()->paginate(10);
+        $query = Thought::latest();
+
+        if (request()->has('search')) {
+            $query = Thought::where('content', 'like', '%' . request()->query('search') . '%');
+        }
+
+        $thoughts = $query->paginate(5);
+
         return view('twitter.index', compact('thoughts'));
     }
 }
