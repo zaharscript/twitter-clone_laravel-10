@@ -15,4 +15,10 @@ class Thought extends Model
         'likes',
         'dislikes',
     ];
+
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

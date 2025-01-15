@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ThoughtController;
+use App\Http\Controllers\CommentController;
 use App\Models\Thought;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -34,7 +35,15 @@ Route::put('/thoughts/{thought}', [ThoughtController::class, 'update'])->name('t
 
 Route::delete('/thoughts/{thought}', [ThoughtController::class, 'destroy'])->name('thoughts.destroy');
 
+Route::post('/thoughts/{thought}/comments', [CommentController::class, 'store'])->name('thoughts.comments.create');
 
+
+
+
+// model ✔
+// controller
+// migration ✔
+// setup the route
 
 
 
