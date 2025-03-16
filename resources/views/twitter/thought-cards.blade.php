@@ -5,9 +5,9 @@
                 <div class="d-flex align-items-center">
 
                     <img style="width:50px" class="me-2 avatar-sm rounded-circle"
-                        src="https://api.dicebear.com/6.x/fun-emoji/svg?seed=Mario" alt="Mario Avatar">
+                        src="https://api.dicebear.com/9.x/adventurer/svg?seed=Brian" alt="Brian Avatar">
                     <div>
-                        <h5 class="card-title mb-0"><a href="#"> Mario
+                        <h5 class="card-title mb-0"><a href="#"> Brian
                             </a></h5>
                     </div>
 
@@ -15,7 +15,7 @@
                 <div style="display: flex; gap: 10px; align-items: center;">
 
                     <a href="{{ route('twitter.index') }}"><i class="fa-solid fa-square-caret-left fa-bounce fa-lg"
-                            style="color: #63E6BE;"></i></a>
+                            style="color: #76ac9c;"></i></a>
 
                 </div>
             </div>
@@ -26,10 +26,9 @@
                 <div class="d-flex align-items-center">
 
                     <img style="width:50px" class="me-2 avatar-sm rounded-circle"
-                        src="https://api.dicebear.com/6.x/fun-emoji/svg?seed=Mario" alt="Mario Avatar">
+                    src="https://api.dicebear.com/9.x/adventurer/svg?seed=Brian" alt="Brian Avatar">
                     <div>
-                        <h5 class="card-title mb-0"><a href="#"> Mario
-                            </a></h5>
+                        <h5 class="card-title mb-0"><a href="#"> Brian
                     </div>
 
                 </div>
@@ -78,7 +77,7 @@
                     <textarea class="form-control @error('idea') is-invalid @enderror" name="content" id="content" rows="2">{{ $thought->content }}</textarea>
                     @error('content')
                         <span class="invalid-feedback">
-                            {{ $message }}
+                            {{-- {{ $message }} --}}
                         </span>
                     @enderror
 

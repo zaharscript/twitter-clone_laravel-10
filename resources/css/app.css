@@ -10,3 +10,75 @@
 path {
     fill: red;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+body {
+    background-color: #1f4b3e;
+    color: white;
+    text-align: center;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #fff;
+}
+.header .logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+}
+.header nav a {
+    margin: 0 10px;
+    color: #333;
+    text-decoration: none;
+}
+.header .buttons button {
+    padding: 8px 15px;
+    margin-left: 10px;
+    border: none;
+    cursor: pointer;
+}
+.login {
+    background-color: #ccc;
+}
+.signup {
+    background-color: #000;
+    color: white;
+}
+.content {
+    margin-top: 60px;
+}
+.content h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+.search-box {
+    margin: 20px auto;
+    width: 50%;
+    position: relative;
+}
+.search-box input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 30px;
+    border: none;
+    font-size: 16px;
+}
+.tags {
+    margin-top: 20px;
+}
+.tags span {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 15px;
+    cursor: pointer;
+}

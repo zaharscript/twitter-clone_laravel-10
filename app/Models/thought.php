@@ -7,9 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Thought extends Model
 {
-
+//tell laravel to allow these fields to be mass assigned
     use HasFactory;
-
     protected $fillable = [
         'content',
         'likes',
@@ -18,7 +17,8 @@ class Thought extends Model
 
 
     public function comments()
-    {
-        return $this->hasMany(Comment::class);
-    }
+     {
+        //define the relationship between thought and comment
+         return $this->hasMany(Comment::class);
+     }
 }

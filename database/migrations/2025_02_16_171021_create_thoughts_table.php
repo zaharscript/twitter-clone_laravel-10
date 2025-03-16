@@ -11,11 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('thoughts', function (Blueprint $table) {
+
+        /***
+         * Run migrations.
+         * varchar 250 char
+         * likes integer 0
+         * created_at timestamp
+         * updated_at timestamp
+         * id integer
+         */
+        Schema::create('thoughts', function (Blueprint $table) {
             $table->id();
             $table->string('content');
-            $table->unsignedInteger('likes')->default(0);
-            $table->unsignedInteger('dislikes')->default(0)->after('likes');
+            $table->unsignedBigInteger('likes')->default(0);
+            $table->unsignedBigInteger('dislikes')->default(0);
             $table->timestamps();
         });
     }
@@ -25,8 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('thoughts', function (Blueprint $table) {
-            $table->dropColumn('dislikes');
-        });
+        Schema::dropIfExists('thoughts');
     }
 };

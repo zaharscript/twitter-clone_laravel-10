@@ -8,9 +8,9 @@ use App\Models\Thought;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view( 'welcome');
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -23,7 +23,7 @@ Route::middleware('auth')->group(function () {
 });
 
 // twitter-clone route
-Route::get('/index', [DashboardController::class, 'index'])->name('twitter.index');
+Route::get('/', [DashboardController::class, 'index'])->name('twitter.index');
 
 Route::get('/thoughts/{thought}', [ThoughtController::class, 'show'])->name('thoughts.show');
 
@@ -35,11 +35,11 @@ Route::put('/thoughts/{thought}', [ThoughtController::class, 'update'])->name('t
 
 Route::delete('/thoughts/{thought}', [ThoughtController::class, 'destroy'])->name('thoughts.destroy');
 
-Route::post('/thoughts/{thought}/comments', [CommentController::class, 'store'])->name('thoughts.comments.create');
+Route::post('/thoughts/{thought}/comments', [CommentController::class, 'store'])->name('thoughts.comments.store');
 
 
 
-
+//step to create comment features
 // model ✔
 // controller
 // migration ✔

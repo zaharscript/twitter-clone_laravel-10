@@ -14,7 +14,7 @@ class ThoughtController extends Controller
         // input validation
         $request->validate(
             [
-                'idea' => 'required|string|min:4|max:255' //validation rules
+                'idea' => 'required|string|min:4|max:500' //validation rules
             ],
             [
                 //custom error message
@@ -25,6 +25,7 @@ class ThoughtController extends Controller
             ]
         );
 
+
         $thought = Thought::create([
             'content' => request()->get('idea', ' '),
         ]);
@@ -33,16 +34,20 @@ class ThoughtController extends Controller
         return redirect()->route('twitter.index')->with('success', 'Another idea added to the vault!');
     }
 
+
     public function show(Thought $thought)
     {
+
+        //dd($thought->comments);
         // return view('twitter.show', [
         //     'thought' => $thought
         // ]);
 
         // more simplified method 👇🏻
-        $readOne = true;
+        $readOne = true;//<-- this variable is for the read one button
         return view('twitter.show', compact('thought', 'readOne'));
     }
+
 
     public function destroy(Thought $thought)
     {
@@ -52,17 +57,19 @@ class ThoughtController extends Controller
         return redirect()->route('twitter.index')->with('success', 'Thought deleted!');
     }
 
+
     public function edit(Thought $thought)
     {
-        $editing = true;
+        $editing = true;//<-- this variable is for the edit button
 
         return view('twitter.show', compact('thought', 'editing'));
     }
 
+
     public function update(Request $request, Thought $thought)
     {
         $request->validate([
-            'content' => 'required|string|min:4|max:255'
+            'content' => 'required|string|min:4|max:500'
         ]);
 
         $thought->update([

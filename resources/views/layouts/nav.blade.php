@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-dark border-bottom border-bottom-dark sticky-top bg-body-tertiary"
     data-bs-theme="dark">
     <div class="container">
-        <a class="navbar-brand fw-light" href="/index"><span><img class="svg" style="width:50px;height:50px"
+        <a class="navbar-brand fw-light" href="/"><span><img class="svg" style="width:50px;height:50px"
                     src="/image/thoughts.svg" alt="Description of SVG">
 
             </span>{{ config('app.name', 'Laravel') }}</a>

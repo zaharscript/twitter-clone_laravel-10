@@ -11,14 +11,18 @@ class DashboardController extends Controller
     public function index()
     {
 
-        $query = Thought::latest();
+        $thoughts = Thought::orderBy('created_at','DESC');
 
-        if (request()->has('search')) {
-            $query = Thought::where('content', 'like', '%' . request()->query('search') . '%');
+        //equal is sql as "SELECT * FROM thoughts where content like '%search%'" 👇
+         if (request()->has('search')) {
+           $thoughts = $thoughts->where('content', 'like', '%' . request()->query('search') . '%');
         }
 
-        $thoughts = $query->paginate(5);
 
-        return view('twitter.index', compact('thoughts'));
+        return view('twitter.index',[
+            'thoughts' => $thoughts->paginate(5)
+        ]);
+
+
     }
 }
